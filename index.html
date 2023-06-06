@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Synthesis Demo</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="trick1">
+            <h1>TRICK 1 - Speech Synthesis</h1>
+
+            <button id="speakButton">Click Me to Speak</button>
+
+            <p class="message">
+                Greetings, esteemed developers. I trust this message finds you in good
+                health and high spirits. I, Dhara, extend my warm regards to each one of you.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="trick2">
+            <h1>TRICK 2 - Write CSS in DOM and See Changes</h1>
+            <style contenteditable style="display: block; white-space: pre; ">
+                .container {
+                background-color: blue;
+                border-radius: 6px;
+                font-size: 20px;
+                padding: 10px;
+                }
+
+                button {
+                padding: 15px 25px;
+                background-color: #FF5733;
+                color: white;
+                }
+
+                .message,
+                .trick2 {
+                font-size: 14px;
+                color: #333;
+                background-color: #F9F9F9;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+            </style>
+        </div>
+    </div>
+
+    <script>
+        const speakButton = document.getElementById('speakButton');
+        const messageElement = document.querySelector('.message');
+
+        const speakMessage = () => {
+            const message = messageElement.innerHTML;
+            const speechSynthesisUtterance = new SpeechSynthesisUtterance(message);
+            window.speechSynthesis.speak(speechSynthesisUtterance);
+        };
+
+        speakButton.addEventListener('click', speakMessage);
+    </script>
+</body>
+
+</html>
